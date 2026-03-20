@@ -159,13 +159,13 @@ class Tool(object):
                 parameterType="Required",
                 direction="Input",
             ),
-            arcpy.Parameter(
-                displayName="Minimum polygon area (m²) [geodesic]",
-                name="min_poly_area",
-                datatype="GPDouble",
-                parameterType="Optional",
-                direction="Input",
-            ),
+            # arcpy.Parameter(
+            #     displayName="Minimum polygon area (m²) [geodesic]",
+            #     name="min_poly_area",
+            #     datatype="GPDouble",
+            #     parameterType="Optional",
+            #     direction="Input",
+            # ),
             arcpy.Parameter(
                 displayName="Remove study-area/extent border segments",
                 name="drop_border",
@@ -175,7 +175,7 @@ class Tool(object):
             ),
         ]
         # Default: drop border segments
-        params[8].value = True
+        params[7].value = True
         return params
 
     def isLicensed(self):
@@ -197,8 +197,7 @@ class Tool(object):
             output_folder      = parameters[4].valueAsText
             prefix             = parameters[5].valueAsText
             output_crs_param   = parameters[6]
-            user_min_poly_area = parameters[7].value
-            drop_border        = bool(parameters[8].value) if parameters[8].altered else True
+            drop_border        = bool(parameters[7].value) if parameters[7].altered else True
 
             # Describe input & lock envs using dataset path/extent (NOT parameter object)
             try:
@@ -267,10 +266,7 @@ class Tool(object):
             elif cs <=30: gaussian_sigma = 0.7
             else:         gaussian_sigma = 0.5
             morph_radius = max(1, int(round(gaussian_sigma)))
-            default_min_pixels    = 25
-            min_polygon_area_auto = float(default_min_pixels) * (cs * cs)
-            min_polygon_area      = float(user_min_poly_area) if user_min_poly_area not in (None, "") else min_polygon_area_auto
-            messages.addMessage(f"Auto params: sigma={gaussian_sigma}, morph_radius={morph_radius}, min_polygon_area={min_polygon_area:.2f}")
+            messages.addMessage(f"Auto params: sigma={gaussian_sigma}, morph_radius={morph_radius}")
 
             # Read bands
             green_ras = _resolve_band(raster_path, green_band_name)
@@ -424,34 +420,6 @@ class Tool(object):
                 messages.addErrorMessage("Filtering water polygons failed: " + str(e))
                 raise
 
-            # Small polygon filter by SHAPE@AREA
-            try:
-                if min_polygon_area and min_polygon_area > 0:
-                    desc = arcpy.Describe(valid_polygons)
-                    oid_field = desc.OIDFieldName
-                    keep_oids = []
-
-                    with arcpy.da.SearchCursor(valid_polygons, [oid_field, "SHAPE@"]) as scur:
-                        for oid, geom in scur:
-                            if geom:
-                                area_m2 = geom.getArea("GEODESIC", "SQUAREMETERS")
-                                if area_m2 >= float(min_polygon_area):
-                                    keep_oids.append(oid)
-                    if keep_oids:
-                        where = f'"{oid_field}" IN ({",".join(map(str, keep_oids))})'
-                        arcpy.MakeFeatureLayer_management(valid_polygons, "valid_lyr")
-                        arcpy.SelectLayerByAttribute_management("valid_lyr", "NEW_SELECTION", where)
-                        arcpy.CopyFeatures_management("valid_lyr", filtered_polygons)
-                        arcpy.Delete_management("valid_lyr")
-                        valid_polygons = filtered_polygons
-                        messages.addMessage(f"Removed small polygons < {min_polygon_area:.2f} m² (geodesic).")
-                    else:
-                        messages.addWarningMessage("No polygons met min area; kept originals.")
-                else:
-                    messages.addMessage("Min area filtering skipped (<= 0).")
-            except Exception as e:
-                messages.addWarningMessage("Small-polygon filtering failed: " + str(e))
-                messages.addWarningMessage("GP messages:\n" + arcpy.GetMessages(2))
 
             # Mask boundary (for optional border filtering)
             try:
@@ -626,7 +594,6 @@ class Tool(object):
                     "cellsize_map_units": cs,
                     "gaussian_sigma": gaussian_sigma,
                     "morph_radius_px": morph_radius,
-                    "min_polygon_area_map_units2": float(min_polygon_area),
                     "otsu_threshold": None if 'thresh' not in locals() or thresh is None else float(thresh),
                     "water_pixel_count": water_count,
                     "output_crs": out_crs_label,
