@@ -1,7 +1,6 @@
 # SE+ Shoreline Extractor (v2.0.0)
 
-<!-- After the first Zenodo release, replace XXXXXXX with your record number: -->
-<!-- [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXXXX) -->
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23301832.svg)](https://doi.org/10.5281/zenodo.23301832)
 
 Automates shoreline extraction from a multispectral composite using **MNDWI + Otsu**, with adaptive smoothing, morphology cleanup, an optional **lidar DEM land/water constraint** (NOAA lidar) that **excludes marsh shorelines** (keeps beach / non-marsh coast only), polygon→line conversion (keeps boundary), and projection to a target CRS.
 
@@ -183,7 +182,11 @@ python tests/test_dem.py      # and the other files in tests/
 The ArcGIS steps themselves (raster I/O, polygon conversion, projection) must be checked in ArcGIS Pro.
 
 ## Citing
-If you use SE+ in published work, please cite the archived release (DOI on the Zenodo record) using the metadata in `CITATION.cff`. GitHub's **Cite this repository** button produces APA and BibTeX from that file.
+If you use SE+ in published work, please cite the archived release:
+
+> Dwira, C. A. (2026). *SE+ Shoreline Extractor: lidar-constrained shoreline extraction for mixed marsh and non-marsh coasts (ArcGIS Pro toolbox)* (Version 2.0.0) [Computer software]. Zenodo. https://doi.org/10.5281/zenodo.23301832
+
+GitHub's **Cite this repository** button produces APA and BibTeX from `CITATION.cff`.
 
 ## Authors
 Developed by Curtis Amo Dwira (Louisiana State University), with supervision from Dr. Ahmmed Abdallah (Louisiana State University).

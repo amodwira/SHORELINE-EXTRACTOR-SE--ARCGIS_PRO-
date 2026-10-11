@@ -5,6 +5,7 @@ type: software
 version: "2.0.0"
 date-released: "2026-10-11"
 license: MIT
+doi: "10.5281/zenodo.23301832"
 authors:
   - family-names: "Dwira"
     given-names: "Curtis Amo"
