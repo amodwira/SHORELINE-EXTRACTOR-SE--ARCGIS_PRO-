@@ -180,7 +180,7 @@ The ArcGIS steps themselves (raster I/O, polygon conversion, projection) must be
 If you use SE+ in published work, please cite the archived release (DOI on the Zenodo record) using the metadata in `CITATION.cff`. GitHub's **Cite this repository** button produces APA and BibTeX from that file.
 
 ## Authors
-Developed by Curtis Amo Dwira (Louisiana State University), with supervision from Dr. Ahmmed Abdullah (Louisiana State University) and Prof. Bernard Kumi-Boateng (University of Mines and Technology, Ghana).
+Developed by Curtis Amo Dwira (Louisiana State University), with supervision from Dr. Ahmmed Abdallah (Louisiana State University).
 
 ## License
 MIT — see `LICENSE`. Version history: `CHANGELOG.md`.
