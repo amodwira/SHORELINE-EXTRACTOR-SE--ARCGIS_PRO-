@@ -1,0 +1,33 @@
+{
+  "title": "SE+ Shoreline Extractor: lidar-constrained shoreline extraction for mixed marsh and non-marsh coasts (ArcGIS Pro toolbox)",
+  "upload_type": "software",
+  "version": "2.0.0",
+  "description": "<p>An ArcGIS Pro Python toolbox that extracts shorelines from multispectral imagery (MNDWI with Otsu thresholding) and, optionally, constrains the land&ndash; water decision with a bare-earth lidar DEM referenced to Mean High Water (MHW). Elevation assigns each pixel to clearly land, clearly water, or near MHW; vegetated ground near MHW is identified as marsh (NDVI). Shoreline segments are labelled marsh or non-marsh, and the non-marsh shoreline and the marsh shoreline are delivered as separate layers, with a segmentation map (open water, inland water, land, marsh) and diagnostic rasters. Developed for coastal Louisiana using Sentinel-2 imagery and NOAA lidar.</p>",
+  "creators": [
+    {
+      "name": "Dwira, Curtis Amo",
+      "affiliation": "Louisiana State University",
+      "orcid": "0009-0005-3565-6338"
+    }
+  ],
+  "contributors": [
+    {
+      "name": "Abdallah, Ahmmed",
+      "affiliation": "Louisiana State University",
+      "type": "Supervisor"
+    }
+  ],
+  "license": "mit",
+  "access_right": "open",
+  "keywords": [
+    "shoreline extraction",
+    "satellite-derived shoreline",
+    "MNDWI",
+    "lidar",
+    "salt marsh",
+    "coastal Louisiana",
+    "Sentinel-2",
+    "ArcGIS Pro"
+  ],
+  "language": "eng"
+}
