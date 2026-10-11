@@ -77,8 +77,7 @@ v2.6 (DEM / NOAA lidar integration)
 
 Requires: ArcGIS Pro 3.x, Spatial Analyst; scikit-image (scipy is bundled with ArcGIS Pro)
 Developed by Curtis Amo Dwira, MSc in Civil Engineering, Louisiana State University.
-With support from Dr. Ahmmed Abdullah, PhD, Assistant Professor, Louisiana State University.
-Prof. Bernard Kumi-Boateng, PhD, Professor, University of Mines and Technology, Ghana.
+With support from Dr. Ahmmed Abdallah, PhD, Assistant Professor, Louisiana State University.
 """
 
 import arcpy
