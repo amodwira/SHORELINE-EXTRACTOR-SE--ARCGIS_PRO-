@@ -1,0 +1,7 @@
+# The tests check the NumPy logic outside ArcGIS (arcpy is stubbed).
+# Run each with:  python tests/<name>.py
+numpy
+scipy
+scikit-image
+shapely      # test_v28.py, test_v281.py only
+rasterio     # test_v28.py only

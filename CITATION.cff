@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using the metadata below."
+title: "SE+ Shoreline Extractor: lidar-constrained shoreline extraction for mixed marsh and non-marsh coasts (ArcGIS Pro toolbox)"
+type: software
+version: "2.0.0"
+date-released: "2026-10-11"
+license: MIT
+authors:
+  - family-names: "Dwira"
+    given-names: "Curtis Amo"
+    affiliation: "Louisiana State University"
+    orcid: "https://orcid.org/0009-0005-3565-6338"
+repository-code: "https://github.com/amodwira/SHORELINE-EXTRACTOR-SE--ARCGIS_PRO-"
+keywords:
+  - shoreline extraction
+  - satellite-derived shoreline
+  - MNDWI
+  - lidar
+  - salt marsh
+  - coastal Louisiana
+  - Sentinel-2
+  - ArcGIS Pro
+abstract: >-
+  An ArcGIS Pro Python toolbox that extracts shorelines from multispectral
+  imagery (MNDWI with Otsu thresholding) and, optionally, constrains the
+  land-water decision with a bare-earth lidar DEM referenced to Mean High
+  Water. Vegetated ground near MHW is identified as marsh (NDVI), shoreline
+  segments are labelled marsh or non-marsh, and the non-marsh shoreline and
+  the marsh shoreline are delivered as separate layers together with a
+  segmentation map (open water, inland water, land, marsh).
