@@ -17,6 +17,12 @@ The toolbox is the file **`Shoreline_Extractor.pyt`**, an ArcGIS Pro *Python too
 
 To keep it in every project, right-click the toolbox in Catalog → **Add To Favorites**.
 
+## Workflow
+
+![SE+ v2.0.0 workflow](docs/SE_Plus_workflow.png)
+
+How the toolbox processes the inputs, with and without a lidar DEM (values shown are the tool defaults). Vector versions for print or editing: [PDF](docs/SE_Plus_workflow.pdf) · [SVG](docs/SE_Plus_workflow.svg).
+
 ## Requirements
 - **ArcGIS Pro 3.x (Windows)**
 - **Spatial Analyst** extension
